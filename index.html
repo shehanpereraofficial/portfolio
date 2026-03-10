@@ -53,10 +53,20 @@
 </header>
 
 <div class="filter-wrapper">
-    <button class="filter-btn active" onclick="filterSelection('all')">All Works</button>
-    <button class="filter-btn" onclick="filterSelection('design')">Graphic Design</button>
-    <button class="filter-btn" onclick="filterSelection('video')">Video Editing</button>
-    <button class="filter-btn" onclick="filterSelection('game')">Game Development</button>
+    <div style="margin-bottom: 15px;">
+        <span style="display: block; font-size: 0.7rem; color: #444; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px;">Main Categories</span>
+        <button class="filter-btn active" onclick="filterSelection('all')">All Works</button>
+        <button class="filter-btn" onclick="filterSelection('video')">Video Editing</button>
+        <button class="filter-btn" onclick="filterSelection('game')">Game Dev</button>
+    </div>
+    
+    <div>
+        <span style="display: block; font-size: 0.7rem; color: #444; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px;">Graphic Design Specialties</span>
+        <button class="filter-btn" onclick="filterSelection('design')">All Designs</button>
+        <button class="filter-btn" onclick="filterSelection('social')">Social Media Posts</button>
+        <button class="filter-btn" onclick="filterSelection('thumbnail')">YouTube Thumbnails</button>
+        <button class="filter-btn" onclick="filterSelection('logo')">Logos</button>
+    </div>
 </div>
 
 <div class="container">
@@ -142,6 +152,7 @@
 
 </body>
 </html>
+
 
 
 
