@@ -3,79 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shehan Perera | Multi-Disciplinary Creator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <title>Shehan Perera | Creative Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #080808; color: white; margin: 0; text-align: center; }
-        header { padding: 80px 20px 40px; }
-        h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; text-transform: uppercase; }
-        .subtitle { color: #888; font-size: 1.1rem; margin-top: 10px; }
-
-        /* Navigation Tabs */
-        .filter-container { margin: 40px 0; }
-        .filter-btn {
-            background: none; border: 1px solid #333; color: #888; padding: 10px 25px;
-            margin: 5px; cursor: pointer; border-radius: 50px; font-weight: 600; transition: 0.3s;
-        }
-        .filter-btn.active, .filter-btn:hover { background: white; color: black; border-color: white; }
-
-        /* Work Grid */
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        :root { --primary: #ffffff; --accent: #3d5afe; --bg: #050505; --card-bg: #111111; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: white; margin: 0; scroll-behavior: smooth; }
         
-        /* Portfolio Cards */
-        .card { background: #111; border-radius: 12px; overflow: hidden; border: 1px solid #222; display: block; }
-        .card img { width: 100%; height: 200px; object-fit: cover; background: #222; }
-        .card-info { padding: 15px; text-align: left; }
-        .card-info h3 { margin: 0; font-size: 1.1rem; }
-        .card-info p { margin: 5px 0 0; font-size: 0.9rem; color: #666; }
+        header { padding: 100px 20px 60px; text-align: center; }
+        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -2px; font-weight: 800; }
+        .subtitle { color: #888; font-size: 1.2rem; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* LinkedIn Link */
-        .contact-btn { display: inline-block; margin-top: 30px; color: #0077b5; text-decoration: none; font-weight: bold; border-bottom: 1px solid #0077b5; padding-bottom: 2px; }
+        /* Filter Buttons */
+        .filter-wrapper { margin: 50px 0; position: sticky; top: 0; background: rgba(5,5,5,0.8); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; }
+        .filter-btn {
+            background: none; border: 1px solid #222; color: #666; padding: 12px 28px;
+            margin: 5px; cursor: pointer; border-radius: 50px; font-weight: 600; transition: 0.3s; font-size: 0.9rem;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: black; border-color: var(--primary); }
+
+        /* Portfolio Grid */
+        .container { max-width: 1200px; margin: auto; padding: 0 20px 100px; }
+        .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+        
+        /* Work Cards */
+        .card { background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid #1a1a1a; transition: 0.4s ease; display: block; }
+        .card:hover { transform: translateY(-10px); border-color: #333; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .thumb { width: 100%; height: 230px; background: #1a1a1a; object-fit: cover; display: block; }
+        .card-info { padding: 20px; text-align: left; }
+        .card-info h3 { margin: 0; font-size: 1.2rem; font-weight: 700; }
+        .card-info p { margin: 8px 0 0; font-size: 0.85rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+
+        .linkedin-link { display: inline-block; margin-top: 30px; color: #0077b5; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.3s; }
+        .linkedin-link:hover { opacity: 0.7; }
+
+        footer { padding: 50px; border-top: 1px solid #111; color: #333; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .work-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Shehan Perera</h1>
-    <p class="subtitle">Digital Creator specializing in Video, Design & Game Dev</p>
-    <a href="https://www.linkedin.com/in/shehan-perera-official" class="contact-btn">Connect on LinkedIn</a>
+    <p class="subtitle">Video Editor | Graphic Designer | Game Developer</p>
+    <a href="https://www.linkedin.com/in/shehan-perera-official" target="_blank" class="linkedin-link">Connect via LinkedIn</a>
 </header>
 
-<div class="filter-container">
-    <button class="filter-btn active" onclick="filterSelection('all')">Show All</button>
-    <button class="filter-btn" onclick="filterSelection('design')">Visual Identities</button>
-    <button class="filter-btn" onclick="filterSelection('video')">Cinematic Cuts</button>
-    <button class="filter-btn" onclick="filterSelection('game')">Interactive Worlds</button>
+<div class="filter-wrapper">
+    <button class="filter-btn active" onclick="filterSelection('all')">All Works</button>
+    <button class="filter-btn" onclick="filterSelection('design')">Graphic Design</button>
+    <button class="filter-btn" onclick="filterSelection('video')">Video Editing</button>
+    <button class="filter-btn" onclick="filterSelection('game')">Game Development</button>
 </div>
 
 <div class="container">
-    <div class="work-grid">
+    <div class="work-grid" id="grid">
+        
         <div class="card design">
-            <img src="https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Graphic+Design+Work" alt="Design">
+            <img src="https://via.placeholder.com/600x400/111/eee?text=Design+Project" class="thumb">
             <div class="card-info">
-                <h3>Brand Identity Project</h3>
+                <h3>Visual Brand Identity</h3>
                 <p>Graphic Design</p>
             </div>
         </div>
 
         <div class="card video">
-            <img src="https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Video+Editing+Work" alt="Video">
+            <img src="https://via.placeholder.com/600x400/111/eee?text=Video+Project" class="thumb">
             <div class="card-info">
-                <h3>Commercial Edit</h3>
+                <h3>Cinematic Montage</h3>
                 <p>Video Editing</p>
             </div>
         </div>
 
         <div class="card game">
-            <img src="https://via.placeholder.com/400x250/1a1a1a/ffffff?text=The+Shadow+Path" alt="Game">
+            <img src="https://via.placeholder.com/600x400/111/eee?text=The+Shadow+Path" class="thumb">
             <div class="card-info">
-                <h3>The Shadow Path</h3>
+                <h3>The Shadow Path (2D Platformer)</h3>
                 <p>Game Development</p>
             </div>
         </div>
+
     </div>
 </div>
+
+<footer>
+    &copy; 2026 SHEHANONLINE.ME | Developed for Freelance & Creative Projects
+</footer>
 
 <script>
     function filterSelection(c) {
@@ -84,17 +100,21 @@
         if (c == "all") c = "";
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
-            if (x[i].className.indexOf(c) > -1) x[i].style.display = "block";
+            if (x[i].className.indexOf(c) > -1) {
+                x[i].style.display = "block";
+            }
         }
-        // Active button style change
-        var btns = document.getElementsByClassName("filter-btn");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function(){
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
+    }
+
+    // Active button highlighting
+    var btnContainer = document.querySelector(".filter-wrapper");
+    var btns = btnContainer.getElementsByClassName("filter-btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
     }
 </script>
 
