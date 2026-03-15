@@ -13,7 +13,7 @@
         h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; font-weight: 800; }
         .subtitle { color: #888; font-size: 1rem; margin-top: 5px; }
 
-        /* Navigation Filter */
+        /* Filter Navigation */
         .filter-wrapper { position: sticky; top: 0; background: rgba(5,5,5,0.9); backdrop-filter: blur(15px); padding: 15px 0; z-index: 100; text-align: center; border-bottom: 1px solid #111; }
         .filter-btn {
             background: none; border: 1px solid #222; color: #777; padding: 10px 20px;
@@ -21,7 +21,7 @@
         }
         .filter-btn.active, .filter-btn:hover { background: var(--primary); color: black; border-color: var(--primary); }
 
-        /* Sub-menu styling */
+        /* Graphic Design Sub-menu styling */
         #graphic-subs { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1a1a1a; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -34,7 +34,7 @@
         
         .thumb { 
             width: 100%; 
-            aspect-ratio: 1 / 1; /* හතරැස් පෙනුම */
+            aspect-ratio: 1 / 1; /* Square Look */
             object-fit: cover; 
             display: block; 
             background: #1a1a1a; 
@@ -59,14 +59,14 @@
 
 <div class="filter-wrapper">
     <button class="filter-btn active" onclick="filterSelection('all'); hideSubs()">All Works</button>
-    <button class="filter-btn" onclick="toggleGraphicMenu()">Graphic Design ▾</button>
+    <button class="filter-btn" id="graphic-main-btn" onclick="toggleGraphicMenu()">Graphic Design ▾</button>
     <button class="filter-btn" onclick="filterSelection('video'); hideSubs()">Video Editing</button>
     <button class="filter-btn" onclick="filterSelection('game'); hideSubs()">Game Dev</button>
     
     <div id="graphic-subs">
         <button class="filter-btn" onclick="filterSelection('design')">All Designs</button>
-        <button class="filter-btn" onclick="filterSelection('social')">Social Media</button>
-        <button class="filter-btn" onclick="filterSelection('thumbnail')">Thumbnails</button>
+        <button class="filter-btn" onclick="filterSelection('social')">Social Media Posts</button>
+        <button class="filter-btn" onclick="filterSelection('thumbnail')">YouTube Thumbnails</button>
         <button class="filter-btn" onclick="filterSelection('logo')">Logos</button>
     </div>
 </div>
@@ -83,25 +83,33 @@
         </div>
 
         <div class="card design thumbnail">
-            <img src="https://via.placeholder.com/800x800/111/eee?text=Thumbnail+Project" class="thumb">
+            <img src="https://via.placeholder.com/800x800/111/eee?text=Thumbnail+Design" class="thumb">
             <div class="card-info">
-                <h3>Gaming Video Thumbnail</h3>
+                <h3>Gaming Thumbnail</h3>
                 <p>Design / YouTube</p>
             </div>
         </div>
 
         <div class="card design social">
-            <img src="https://via.placeholder.com/800x800/111/eee?text=Social+Media+Post" class="thumb">
+            <img src="https://via.placeholder.com/800x800/111/eee?text=Social+Media+Post+2" class="thumb">
             <div class="card-info">
-                <h3>Business Instagram Post</h3>
+                <h3>Instagram Business Post</h3>
+                <p>Design / Social Media</p>
+            </div>
+        </div>
+
+        <div class="card design social">
+            <img src="https://via.placeholder.com/800x800/111/eee?text=Social+Media+Post+3" class="thumb">
+            <div class="card-info">
+                <h3>Product Promo Design</h3>
                 <p>Design / Social Media</p>
             </div>
         </div>
 
         <div class="card design logo">
-            <img src="https://via.placeholder.com/800x800/111/eee?text=Logo+Design" class="thumb">
+            <img src="https://via.placeholder.com/800x800/111/eee?text=Logo+Project" class="thumb">
             <div class="card-info">
-                <h3>Abstract Brand Logo</h3>
+                <h3>Creative Logo Design</h3>
                 <p>Design / Logo</p>
             </div>
         </div>
@@ -122,6 +130,7 @@
 <footer>&copy; 2026 SHEHANONLINE.ME</footer>
 
 <script>
+    // Filtering logic
     function filterSelection(c) {
         var x = document.getElementsByClassName("card");
         if (c == "all") c = "";
@@ -129,24 +138,41 @@
             x[i].style.display = "none";
             if (x[i].className.indexOf(c) > -1) x[i].style.display = "block";
         }
+        updateActiveButton();
     }
 
+    // Toggle sub-menu
     function toggleGraphicMenu() {
         var menu = document.getElementById("graphic-subs");
         if (menu.style.display === "block") {
             menu.style.display = "none";
         } else {
             menu.style.display = "block";
+            // උප-මෙනුව ඇරෙන විට "All Designs" ස්වයංක්‍රීයව පෙන්වන්න
             filterSelection('design');
         }
     }
 
+    // Hide sub-menu when other main categories are clicked
     function hideSubs() {
         document.getElementById("graphic-subs").style.display = "none";
     }
 
-    var btns = document.getElementsByClassName("filter-btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function(){
-            var current = document.getElementsByClassName("active");
-            if (current.length > 0) { current[0].className = current[0].className.replace
+    // Handle active state for all buttons
+    function updateActiveButton() {
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+                var current = document.querySelectorAll(".filter-btn.active");
+                if (current.length > 0) { current[0].classList.remove("active"); }
+                this.classList.add("active");
+            });
+        }
+    }
+    
+    // Initial call to set highlighting
+    updateActiveButton();
+</script>
+
+</body>
+</html>
