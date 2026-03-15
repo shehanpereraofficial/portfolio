@@ -12,6 +12,7 @@
         header { padding: 60px 20px 30px; text-align: center; }
         h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; font-weight: 800; }
         .subtitle { color: #888; font-size: 1rem; margin-top: 5px; }
+        .linkedin-link { display: inline-block; margin-top: 15px; color: #0077b5; text-decoration: none; font-weight: 600; }
 
         .filter-wrapper { position: sticky; top: 0; background: rgba(5,5,5,0.9); backdrop-filter: blur(15px); padding: 15px 0; z-index: 100; text-align: center; border-bottom: 1px solid #111; }
         .filter-btn { background: none; border: 1px solid #222; color: #777; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 50px; font-weight: 600; transition: 0.3s; font-size: 0.85rem; }
@@ -20,38 +21,38 @@
         #graphic-subs { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1a1a1a; }
 
         .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; align-items: start; }
+        .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; align-items: start; }
         
         .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #1a1a1a; transition: 0.3s; }
         .card:hover { transform: translateY(-5px); border-color: #333; }
         
-        /* Posts සඳහා පමණක් හතරැස් පෙනුම */
-        .card.design .thumb { 
+        /* Social Media Posts - Square (1:1) */
+        .card.social .thumb { 
             width: 100%; 
             aspect-ratio: 1 / 1; 
             object-fit: cover; 
             display: block; 
         }
         
-        /* වීඩියෝ සඳහා 16:9 පෙනුම */
-     .card.thumbnail .thumb,
+        /* YouTube Thumbnails & Videos - Cinematic (16:9) */
+        .card.thumbnail .thumb,
         .video-container { 
             width: 100%;
             aspect-ratio: 16 / 9; 
             overflow: hidden; 
             display: block;
         }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-container iframe { width: 100%; height: 100%; border: 0; }
 
         .card-info { padding: 20px; text-align: left; }
-        .card-info h3 { margin: 0; font-size: 1.2rem; }
-        .card-info p { margin: 5px 0 0; font-size: 0.85rem; color: #555; text-transform: uppercase; }
+        .card-info h3 { margin: 0; font-size: 1.1rem; }
+        .card-info p { margin: 5px 0 0; font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
 
-        footer { padding: 40px; color: #222; font-size: 0.8rem; text-align: center; }
+        footer { padding: 40px; color: #333; font-size: 0.8rem; text-align: center; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
-
+    
 <header>
     <h1>Shehan Perera</h1>
     <p class="subtitle">Digital Creator | Video Editor | Designer</p>
