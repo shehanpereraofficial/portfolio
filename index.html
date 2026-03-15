@@ -20,29 +20,54 @@
 
         #graphic-subs { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1a1a1a; }
 
-        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; align-items: start; }
-        
-        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #1a1a1a; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: #333; }
-        
-        /* Social Media Posts - Square (1:1) */
-       .card.social .thumb, 
-.card.logo .thumb { 
-    width: 100%; 
-    aspect-ratio: 1 / 1; 
-    object-fit: cover; 
-    display: block;
-    background: #151515;
+     /* Grid එක නිවැරදි කර පාලනය කරන කොටස */
+        .container { 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 20px; 
         }
-        
-        /* YouTube Thumbnails & Videos - Cinematic (16:9) */
-        .card.thumbnail .thumb,
-        .video-container { 
+
+        .work-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
             width: 100%;
-            aspect-ratio: 16 / 9; 
+            align-items: start;
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
             overflow: hidden; 
+            border: 1px solid #1a1a1a; 
+            transition: 0.3s; 
             display: block;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: #333; }
+
+        /* පින්තූරවලට අදාළ කොටස */
+        .thumb { 
+            width: 100%; 
+            aspect-ratio: 1 / 1; 
+            object-fit: cover; 
+            display: block;
+            background: #151515;
+        }
+
+        /* YouTube Thumbnails සහ Videos සඳහා */
+        .card.thumbnail .thumb, .video-container { 
+            aspect-ratio: 16 / 9; 
+        }
+
+        /* ෆෝන් එක සඳහා ස්වයංක්‍රීයව සැකසෙන කොටස (Mobile Optimization) */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .work-grid { 
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+                gap: 12px; 
+            }
+            .card-info h3 { font-size: 0.9rem; }
         }
         .video-container iframe { width: 100%; height: 100%; border: 0; }
 
