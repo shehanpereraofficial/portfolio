@@ -34,11 +34,12 @@
         }
         
         /* වීඩියෝ සඳහා 16:9 පෙනුම */
+     .card.thumbnail .thumb,
         .video-container { 
-            position: relative; 
             width: 100%;
-            aspect-ratio: 16 / 9; /* වීඩියෝ එක නියමිත හැඩයට තබා ගනී */
+            aspect-ratio: 16 / 9; 
             overflow: hidden; 
+            display: block;
         }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
@@ -150,7 +151,7 @@
 
         
         <div class="card design thumbnail">
-            <img src="https://github.com/shehanpereraofficial/portfolio/blob/main/Sample%20thumbnail%201.jpg?raw=true" class="thumb">
+            <img src="https://raw.githubusercontent.com/shehanpereraofficial/portfolio/main/Sample%20thumbnail%201.jpg" class="thumb">
             <div class="card-info">
                 <h3>Gaming Thumbnail</h3>
                 <p>Design / YouTube</p>
