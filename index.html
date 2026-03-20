@@ -20,7 +20,17 @@
         nav a:hover { color: var(--primary); }
 
         /* About Section Styles */
-        .about-section { padding: 60px 20px; max-width: 1000px; margin: auto; display: flex; align-items: center; gap: 50px; border-top: 1px solid #111; border-bottom: 1px solid #111; margin-bottom: 50px; }
+.about-section { 
+    display: none; /* මුලින්ම සැඟවීමට */
+    padding: 60px 20px; 
+    max-width: 1000px; 
+    margin: auto; 
+    align-items: center; 
+    gap: 50px; 
+    border-top: 1px solid #111; 
+    border-bottom: 1px solid #111; 
+    margin-bottom: 50px; 
+}
         .about-image { width: 300px; height: 300px; border-radius: 20px; object-fit: cover; border: 1px solid #222; filter: grayscale(20%); }
         .about-content { flex: 1; }
         .about-content h2 { font-size: 2.2rem; margin-bottom: 20px; }
@@ -71,9 +81,9 @@
     <h1>Shehan Perera</h1>
     <p class="subtitle">Digital Creator | Video Editor | Designer</p>
 <nav style="margin-top: 20px;">
-        <a href="#work" style="color: #666; margin: 0 15px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Portfolio</a>
-        <a href="#about" style="color: #666; margin: 0 15px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">About Me</a>
-    </nav>
+        <a href="javascript:void(0)" onclick="showSection('work')" style="color: #666; margin: 0 15px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Portfolio</a>
+    <a href="javascript:void(0)" onclick="showSection('about')" style="color: #666; margin: 0 15px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">About Me</a>
+</nav>
 </header>
 
     <section id="about" class="about-section">
@@ -381,6 +391,29 @@
             this.classList.add("active");
         });
     }
+
+    function showSection(sectionId) {
+    // සෙක්ෂන් දෙකම ලබා ගන්න
+    var about = document.getElementById("about");
+    var workGrid = document.querySelector(".container"); // ඔබේ නිර්මාණ ඇති ප්‍රධාන කොටස
+    var filters = document.querySelector(".filter-wrapper");
+
+    if (sectionId === 'about') {
+        about.style.display = "flex";      // About පෙන්වන්න
+        workGrid.style.display = "none";    // නිර්මාණ සඟවන්න
+        filters.style.display = "none";     // ෆිල්ටර්ස් සඟවන්න
+    } else {
+        about.style.display = "none";      // About සඟවන්න
+        workGrid.style.display = "block";   // නිර්මාණ පෙන්වන්න
+        filters.style.display = "block";    // ෆිල්ටර්ස් පෙන්වන්න
+        filterSelection('all');             // Portfolio එබූ විට සියල්ල පෙන්වීමට
+    }
+}
+
+// සයිට් එක මුලින්ම ලෝඩ් වන විට පෝර්ට්ෆෝලියෝ එක පමණක් පෙන්වීමට
+window.onload = function() {
+    showSection('work');
+};
 </script>
 </body>
 </html>
